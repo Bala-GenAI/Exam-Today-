@@ -1,0 +1,2609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, maximum-scale=5.0, minimum-scale=1.0">
+    <meta name="description" content="Comprehensive Industry & Academic Training Programs covering Python, Data Science, AI, Quantum Computing, Quantum ML, Cyber Security, Cloud Platforms, SAP, and more. Degree, B.Tech, M.Tech tuitions, Pre-PhD subjects training, PhD research support, publication assistance, and KG to PhD subject-wise tutoring with complete course materials. Online and Offline training options available. Bridge the gap between academia and industry.">
+    <meta name="keywords" content="training, education, python, data science, AI, quantum computing, quantum machine learning, cyber security, cloud computing, SAP, B.Tech tuitions, M.Tech tuitions, degree tuitions, pre-PhD training, PhD research, publication support, research article writing, academic tutoring, KG to PhD, course materials, online training, offline training, industry training">
+    <meta name="author" content="Industry & Academic Training Programs">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#667eea">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Training Brochure">
+    <meta name="mobile-web-app-capable" content="yes">
+    
+    <!-- Favicon and App Icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23667eea'/><text x='50' y='70' font-size='60' text-anchor='middle' fill='white'>📚</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23667eea'/><text x='50' y='70' font-size='60' text-anchor='middle' fill='white'>📚</text></svg>">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <title>Industry & Academic Training Programs - Bridging the Gap</title>
+    <!-- Libraries for PDF and Word generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin: -20px -20px 30px -20px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
+        .section {
+            margin: 40px 0;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .section h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .section h3 {
+            color: #764ba2;
+            font-size: 1.5em;
+            margin: 25px 0 15px 0;
+        }
+
+        .gap-section {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            margin: 40px 0;
+        }
+
+        .gap-section h2 {
+            color: white;
+            border-bottom: 3px solid white;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 4px solid #667eea;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .card h4 {
+            color: #667eea;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .card ul li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .card ul li:before {
+            content: "✓ ";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .tech-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .project-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .project-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-top: 4px solid #f5576c;
+        }
+
+        .project-card h4 {
+            color: #f5576c;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .degree-levels {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .degree-levels h3 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .degree-levels ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .degree-levels ul li {
+            padding: 10px 0;
+            font-size: 1.1em;
+        }
+
+        .degree-levels ul li:before {
+            content: "🎓 ";
+            margin-right: 10px;
+        }
+
+        .cta {
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px;
+            margin: 40px 0;
+        }
+
+        .cta h2 {
+            color: white;
+            border: none;
+            margin-bottom: 20px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: bold;
+        }
+
+        .comparison-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        .enrollment-form {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin: 20px 0;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: bold;
+            font-size: 1em;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .checkbox-item label {
+            margin: 0;
+            font-weight: normal;
+            cursor: pointer;
+        }
+
+        .submit-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            width: 100%;
+            max-width: 300px;
+            margin: 20px auto;
+            display: block;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+
+        .editable-contact {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left: 4px solid #667eea;
+        }
+
+        .editable-contact h4 {
+            color: #667eea;
+            font-size: 1.3em;
+            margin-bottom: 20px;
+        }
+
+        .contact-field {
+            margin-bottom: 15px;
+        }
+
+        .contact-field label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .contact-field input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .contact-field input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .contact-field input:read-only {
+            background-color: #f8f9fa;
+            cursor: not-allowed;
+        }
+
+        .edit-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 20px;
+            border: none;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            margin-top: 10px;
+        }
+
+        .edit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .save-button {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .cancel-button {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .share-section {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .share-section h3 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        .share-section p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            opacity: 0.95;
+        }
+
+        .share-link-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .share-link-input {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            font-family: 'Courier New', monospace;
+            background: #f8f9fa;
+        }
+
+        .copy-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            white-space: nowrap;
+        }
+
+        .copy-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .copy-button.copied {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .share-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .share-button {
+            background: white;
+            color: #667eea;
+            padding: 12px 25px;
+            border: 2px solid white;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .share-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .share-button.email {
+            background: #ea4335;
+            color: white;
+            border-color: #ea4335;
+        }
+
+        .share-button.whatsapp {
+            background: #25D366;
+            color: white;
+            border-color: #25D366;
+        }
+
+        .share-button.linkedin {
+            background: #0077b5;
+            color: white;
+            border-color: #0077b5;
+        }
+
+        .share-button.facebook {
+            background: #1877f2;
+            color: white;
+            border-color: #1877f2;
+        }
+
+        .share-button.twitter {
+            background: #1DA1F2;
+            color: white;
+            border-color: #1DA1F2;
+        }
+
+        .download-section {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .download-section h3 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        .download-section p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            opacity: 0.95;
+        }
+
+        .download-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .download-button {
+            background: white;
+            color: #333;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.1em;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            min-width: 200px;
+            justify-content: center;
+        }
+
+        .download-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+
+        .download-button.pdf {
+            background: #dc3545;
+            color: white;
+        }
+
+        .download-button.word {
+            background: #2b579a;
+            color: white;
+        }
+
+        .download-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .install-app-section {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .install-app-section h3 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        .install-app-section p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            opacity: 0.95;
+        }
+
+        .install-button {
+            background: white;
+            color: #11998e;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.1em;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            margin: 10px;
+        }
+
+        .install-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+
+        .install-button.hidden {
+            display: none;
+        }
+
+        .app-instructions {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: left;
+            font-size: 0.95em;
+        }
+
+        .app-instructions h4 {
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .app-instructions ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .app-instructions li {
+            margin: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .app-instructions li:before {
+            content: "📱 ";
+            position: absolute;
+            left: 0;
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #4facfe;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 1000;
+            display: none;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .container {
+                box-shadow: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Industry & Academic Training Programs</h1>
+            <p>Bridging the Gap Between Academia and Industry</p>
+        </div>
+
+        <div class="section">
+            <h2>Welcome to Comprehensive Training Excellence</h2>
+            <p style="font-size: 1.1em; line-height: 1.8;">
+                Our training programs are designed to bridge the critical gap between academic knowledge and industry requirements. 
+                Whether you're a student pursuing any degree level or a professional seeking to upskill, we provide hands-on, 
+                industry-relevant training that prepares you for real-world challenges.
+            </p>
+        </div>
+
+        <div class="gap-section">
+            <h2>The Academic-Industry Gap</h2>
+            <p style="font-size: 1.1em; margin: 20px 0;">
+                <strong>The Challenge:</strong> Traditional academic programs often focus on theoretical knowledge, leaving students 
+                unprepared for industry demands. Companies seek professionals who can:
+            </p>
+            <ul style="list-style: none; padding-left: 0; font-size: 1.1em;">
+                <li style="margin: 10px 0;">✓ Work with cutting-edge technologies and tools</li>
+                <li style="margin: 10px 0;">✓ Handle real-world projects with practical constraints</li>
+                <li style="margin: 10px 0;">✓ Understand industry best practices and workflows</li>
+                <li style="margin: 10px 0;">✓ Collaborate effectively in professional environments</li>
+                <li style="margin: 10px 0;">✓ Apply theoretical knowledge to solve business problems</li>
+            </ul>
+            <p style="font-size: 1.1em; margin-top: 20px;">
+                <strong>Our Solution:</strong> We bridge this gap by providing industry-aligned training with hands-on projects, 
+                real-world scenarios, and mentorship from industry experts.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Core Programming & Data Science</h2>
+            <div class="grid">
+                <div class="card">
+                    <h4>Python Programming</h4>
+                    <ul>
+                        <li>Fundamentals to Advanced Concepts</li>
+                        <li>Object-Oriented Programming</li>
+                        <li>Data Structures & Algorithms</li>
+                        <li>Python Libraries & Frameworks</li>
+                        <li>Best Practices & Code Quality</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Data Science</h4>
+                    <ul>
+                        <li>Statistical Analysis & Modeling</li>
+                        <li>Data Visualization</li>
+                        <li>Machine Learning Fundamentals</li>
+                        <li>Data Preprocessing & Cleaning</li>
+                        <li>Exploratory Data Analysis (EDA)</li>
+                        <li>Predictive Analytics</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Artificial Intelligence & Advanced Technologies</h2>
+            <div class="grid">
+                <div class="card">
+                    <h4>Artificial Intelligence (AI)</h4>
+                    <ul>
+                        <li>Machine Learning Algorithms</li>
+                        <li>Deep Learning & Neural Networks</li>
+                        <li>Computer Vision</li>
+                        <li>Natural Language Processing (NLP)</li>
+                        <li>Reinforcement Learning</li>
+                        <li>AI Ethics & Responsible AI</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Generative AI (GenAI)</h4>
+                    <ul>
+                        <li>Large Language Models (LLMs)</li>
+                        <li>GPT & Transformer Architectures</li>
+                        <li>Text Generation & Summarization</li>
+                        <li>Image Generation (GANs, Diffusion Models)</li>
+                        <li>Prompt Engineering</li>
+                        <li>Fine-tuning & Customization</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Agentic AI</h4>
+                    <ul>
+                        <li>AI Agent Architectures</li>
+                        <li>Autonomous Systems Design</li>
+                        <li>Multi-Agent Systems</li>
+                        <li>Decision-Making Frameworks</li>
+                        <li>Agent Communication Protocols</li>
+                        <li>Real-World Agent Applications</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Langchain</h4>
+                    <ul>
+                        <li>Langchain Framework Fundamentals</li>
+                        <li>Chain Construction & Orchestration</li>
+                        <li>Memory Management</li>
+                        <li>Agent Development</li>
+                        <li>Tool Integration</li>
+                        <li>Production Deployment</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>RAG (Retrieval-Augmented Generation)</h4>
+                    <ul>
+                        <li>RAG Architecture & Design</li>
+                        <li>Vector Databases & Embeddings</li>
+                        <li>Document Processing & Chunking</li>
+                        <li>Retrieval Strategies</li>
+                        <li>Context Management</li>
+                        <li>RAG Optimization Techniques</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Quantum Computing & Quantum Machine Learning</h2>
+            <div class="grid">
+                <div class="card">
+                    <h4>Quantum Computing</h4>
+                    <ul>
+                        <li>Quantum Mechanics Fundamentals</li>
+                        <li>Qubits & Quantum Gates</li>
+                        <li>Quantum Circuits & Algorithms</li>
+                        <li>Quantum Superposition & Entanglement</li>
+                        <li>Quantum Error Correction</li>
+                        <li>Quantum Hardware & Simulators</li>
+                        <li>IBM Qiskit & Google Cirq</li>
+                        <li>Quantum Algorithms (Shor's, Grover's)</li>
+                        <li>Quantum Cryptography</li>
+                        <li>Quantum Computing Applications</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Quantum Machine Learning (QML)</h4>
+                    <ul>
+                        <li>Quantum Machine Learning Fundamentals</li>
+                        <li>Quantum Neural Networks</li>
+                        <li>Variational Quantum Algorithms</li>
+                        <li>Quantum Feature Maps</li>
+                        <li>Quantum Support Vector Machines</li>
+                        <li>Quantum Optimization</li>
+                        <li>Hybrid Classical-Quantum Models</li>
+                        <li>Quantum Data Encoding</li>
+                        <li>QML Frameworks & Libraries</li>
+                        <li>Real-World QML Applications</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Cloud Platforms & Infrastructure</h2>
+            <div class="grid">
+                <div class="card">
+                    <h4>AWS (Amazon Web Services)</h4>
+                    <ul>
+                        <li>EC2, S3, Lambda, API Gateway</li>
+                        <li>RDS, DynamoDB, Redshift</li>
+                        <li>CloudFormation & Infrastructure as Code</li>
+                        <li>IAM & Security Best Practices</li>
+                        <li>Serverless Architecture</li>
+                        <li>AWS ML Services (SageMaker, Bedrock)</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Microsoft Azure</h4>
+                    <ul>
+                        <li>Virtual Machines & App Services</li>
+                        <li>Azure Functions & Logic Apps</li>
+                        <li>Azure SQL Database & Cosmos DB</li>
+                        <li>Azure DevOps & Pipelines</li>
+                        <li>Azure AI Services</li>
+                        <li>Azure Machine Learning</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Google Cloud Platform (GCP)</h4>
+                    <ul>
+                        <li>Compute Engine & App Engine</li>
+                        <li>Cloud Functions & Cloud Run</li>
+                        <li>BigQuery & Cloud SQL</li>
+                        <li>Cloud Build & Deployment Manager</li>
+                        <li>Vertex AI & AI Platform</li>
+                        <li>GCP ML Services</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>SAP Enterprise Solutions</h2>
+            <div class="grid">
+                <div class="card">
+                    <h4>SAP MM (Materials Management)</h4>
+                    <ul>
+                        <li>Procurement Process & Master Data</li>
+                        <li>Purchase Requisition & Purchase Order</li>
+                        <li>Inventory Management</li>
+                        <li>Valuation & Account Assignment</li>
+                        <li>Invoice Verification</li>
+                        <li>Integration with Other SAP Modules</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>SAP CPI (Cloud Platform Integration)</h4>
+                    <ul>
+                        <li>Integration Platform Architecture</li>
+                        <li>Cloud-to-Cloud Integration</li>
+                        <li>Cloud-to-On-Premise Integration</li>
+                        <li>API Management & Design</li>
+                        <li>Message Mapping & Transformation</li>
+                        <li>Error Handling & Monitoring</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>SAP SAC (SAP Analytics Cloud)</h4>
+                    <ul>
+                        <li>Business Intelligence & Analytics</li>
+                        <li>Planning & Forecasting</li>
+                        <li>Data Visualization & Dashboards</li>
+                        <li>Predictive Analytics</li>
+                        <li>Data Integration & Modeling</li>
+                        <li>Collaborative Planning</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>SAP FICO (Financial Accounting & Controlling)</h4>
+                    <ul>
+                        <li>General Ledger & Accounts Payable/Receivable</li>
+                        <li>Asset Accounting</li>
+                        <li>Cost Center & Profit Center Accounting</li>
+                        <li>Internal Orders & Product Costing</li>
+                        <li>Financial Reporting & Closing</li>
+                        <li>Integration with Other Modules</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>SAP HANA</h4>
+                    <ul>
+                        <li>In-Memory Database Architecture</li>
+                        <li>Data Modeling & SQL Script</li>
+                        <li>Advanced Analytics & Predictive</li>
+                        <li>Application Development</li>
+                        <li>Performance Optimization</li>
+                        <li>Administration & Security</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Enterprise Platforms & Big Data</h2>
+            <div class="grid">
+                <div class="card">
+                    <h4>ServiceNow</h4>
+                    <ul>
+                        <li>IT Service Management (ITSM)</li>
+                        <li>IT Operations Management (ITOM)</li>
+                        <li>IT Business Management (ITBM)</li>
+                        <li>Service Portal Development</li>
+                        <li>Workflow Automation</li>
+                        <li>Custom Application Development</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Snowflake</h4>
+                    <ul>
+                        <li>Cloud Data Warehouse Architecture</li>
+                        <li>Data Loading & Transformation</li>
+                        <li>SQL & Advanced Queries</li>
+                        <li>Data Sharing & Security</li>
+                        <li>Performance Tuning & Optimization</li>
+                        <li>Integration with BI Tools</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Databricks</h4>
+                    <ul>
+                        <li>Unified Analytics Platform</li>
+                        <li>Apache Spark & Delta Lake</li>
+                        <li>Data Engineering & ETL</li>
+                        <li>Machine Learning on Databricks</li>
+                        <li>Notebooks & Collaborative Workspace</li>
+                        <li>Production Deployment</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Big Data</h4>
+                    <ul>
+                        <li>Hadoop Ecosystem (HDFS, MapReduce)</li>
+                        <li>Apache Spark & Scala</li>
+                        <li>Kafka & Real-time Streaming</li>
+                        <li>NoSQL Databases (MongoDB, Cassandra)</li>
+                        <li>Data Lakes & Data Warehouses</li>
+                        <li>Big Data Architecture & Patterns</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Identity & Access Management (IAM)</h2>
+            <div class="grid">
+                <div class="card">
+                    <h4>Access Management Tools & Technologies</h4>
+                    <ul>
+                        <li>AWS IAM & Identity Center</li>
+                        <li>Azure Active Directory (Azure AD)</li>
+                        <li>Google Cloud Identity</li>
+                        <li>Okta & Single Sign-On (SSO)</li>
+                        <li>Active Directory & LDAP</li>
+                        <li>OAuth 2.0 & OpenID Connect</li>
+                        <li>SAML & Federation</li>
+                        <li>Multi-Factor Authentication (MFA)</li>
+                        <li>Role-Based Access Control (RBAC)</li>
+                        <li>Identity Governance & Compliance</li>
+                        <li>Privileged Access Management (PAM)</li>
+                        <li>Identity Lifecycle Management</li>
+                        <li>Access Certification & Reviews</li>
+                        <li>Directory Services</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Cyber Security Tools</h2>
+            <div class="grid">
+                <div class="card">
+                    <h4>Security Tools & Technologies</h4>
+                    <ul>
+                        <li>Vulnerability Assessment Tools</li>
+                        <li>Penetration Testing Frameworks</li>
+                        <li>Security Information and Event Management (SIEM)</li>
+                        <li>Intrusion Detection & Prevention Systems (IDS/IPS)</li>
+                        <li>Firewall Management & Configuration</li>
+                        <li>Endpoint Protection & EDR Solutions</li>
+                        <li>Security Orchestration & Automation</li>
+                        <li>Threat Intelligence Platforms</li>
+                        <li>Network Security Monitoring</li>
+                        <li>Security Compliance & Auditing Tools</li>
+                        <li>Encryption & Key Management</li>
+                        <li>Web Application Security Testing</li>
+                        <li>Cloud Security Tools (AWS Security Hub, Azure Security Center)</li>
+                        <li>Container Security & Kubernetes Security</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Cyber Security Practices</h4>
+                    <ul>
+                        <li>Security Risk Assessment</li>
+                        <li>Incident Response & Forensics</li>
+                        <li>Security Architecture Design</li>
+                        <li>Compliance Frameworks (ISO 27001, NIST, GDPR)</li>
+                        <li>Security Policies & Procedures</li>
+                        <li>Security Awareness Training</li>
+                        <li>Threat Modeling</li>
+                        <li>Secure Coding Practices</li>
+                        <li>DevSecOps Integration</li>
+                        <li>Security Monitoring & Logging</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Cloud Computing</h2>
+            <div class="grid">
+                <div class="card">
+                    <h4>Cloud Computing Fundamentals</h4>
+                    <ul>
+                        <li>Cloud Architecture & Models (IaaS, PaaS, SaaS)</li>
+                        <li>Cloud Deployment Models (Public, Private, Hybrid)</li>
+                        <li>Virtualization & Containers</li>
+                        <li>Cloud Storage Solutions</li>
+                        <li>Networking in the Cloud</li>
+                        <li>Cloud Security & Compliance</li>
+                        <li>Cost Management & Optimization</li>
+                        <li>Disaster Recovery & Backup</li>
+                        <li>Serverless Computing</li>
+                        <li>Microservices Architecture</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>CI/CD & DevOps Tools</h2>
+            <div class="tech-stack">
+                <span class="tech-badge">Jenkins</span>
+                <span class="tech-badge">GitLab CI/CD</span>
+                <span class="tech-badge">GitHub Actions</span>
+                <span class="tech-badge">Azure DevOps</span>
+                <span class="tech-badge">CircleCI</span>
+                <span class="tech-badge">Travis CI</span>
+                <span class="tech-badge">Docker</span>
+                <span class="tech-badge">Kubernetes</span>
+                <span class="tech-badge">Terraform</span>
+                <span class="tech-badge">Ansible</span>
+                <span class="tech-badge">Git</span>
+                <span class="tech-badge">Maven/Gradle</span>
+            </div>
+            <div class="card" style="margin-top: 20px;">
+                <h4>CI/CD Training Includes:</h4>
+                <ul>
+                    <li>Continuous Integration & Deployment Pipelines</li>
+                    <li>Automated Testing & Quality Gates</li>
+                    <li>Containerization with Docker</li>
+                    <li>Orchestration with Kubernetes</li>
+                    <li>Infrastructure as Code (IaC)</li>
+                    <li>Monitoring & Logging</li>
+                    <li>Security in CI/CD Pipelines</li>
+                </ul>
+            </div>
+            <div class="card" style="margin-top: 20px;">
+                <h4>DevOps Tools & Practices</h4>
+                <ul>
+                    <li>Version Control (Git, SVN)</li>
+                    <li>Build Tools (Maven, Gradle, npm)</li>
+                    <li>Configuration Management (Ansible, Puppet, Chef)</li>
+                    <li>Container Orchestration (Kubernetes, Docker Swarm)</li>
+                    <li>Monitoring Tools (Prometheus, Grafana, ELK Stack)</li>
+                    <li>Logging & Tracing</li>
+                    <li>Infrastructure Monitoring</li>
+                    <li>DevOps Culture & Practices</li>
+                    <li>Agile & Scrum Methodologies</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Project-Based Learning</h2>
+            <p style="font-size: 1.1em; margin-bottom: 20px;">
+                Our curriculum emphasizes hands-on learning through real-world projects that mirror industry scenarios:
+            </p>
+            <div class="project-types">
+                <div class="project-card">
+                    <h4>Mini Projects</h4>
+                    <p>Quick, focused projects to reinforce specific concepts and build confidence. Perfect for beginners and skill validation.</p>
+                    <p style="margin-top: 15px; font-weight: bold;">Duration: 1-2 weeks</p>
+                </div>
+                <div class="project-card">
+                    <h4>Major Projects</h4>
+                    <p>Comprehensive projects integrating multiple technologies and concepts. Develops end-to-end problem-solving skills.</p>
+                    <p style="margin-top: 15px; font-weight: bold;">Duration: 4-8 weeks</p>
+                </div>
+                <div class="project-card">
+                    <h4>Live Projects</h4>
+                    <p>Real industry projects with actual clients or simulated business scenarios. Experience professional workflows and deadlines.</p>
+                    <p style="margin-top: 15px; font-weight: bold;">Duration: 8-12 weeks</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="degree-levels">
+            <h3>Training for All Academic Levels</h3>
+            <p style="font-size: 1.1em; margin-bottom: 15px;">
+                Our programs are tailored to meet the needs of learners at every stage of their academic journey:
+            </p>
+            <ul>
+                <li><strong>Kindergarten to High School</strong> - Subject-wise tutoring and academic support with complete course materials</li>
+                <li><strong>Degree Programs (B.A., B.Sc., B.Com)</strong> - Comprehensive tuitions with study materials and notes</li>
+                <li><strong>B.Tech Students</strong> - All engineering branches covered with lab manuals, practice problems, and course materials</li>
+                <li><strong>M.Tech Students</strong> - Advanced technical subjects, thesis support, and specialized course materials</li>
+                <li><strong>Pre-PhD Candidates</strong> - Research methodology, entrance exam prep, and pre-PhD subject training with materials</li>
+                <li><strong>PhD Scholars</strong> - Cutting-edge research tools, research article writing, publication support, and industry collaboration</li>
+                <li><strong>Working Professionals</strong> - Career advancement and skill enhancement</li>
+                <li><strong>Career Switchers</strong> - Complete transition programs with job placement support</li>
+            </ul>
+            <p style="font-size: 1.1em; margin-top: 15px; font-weight: bold; color: white;">
+                📚 All programs include comprehensive course materials, study notes, practice problems, and digital resources!
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Academic vs. Industry Training Comparison</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Aspect</th>
+                        <th>Traditional Academic Training</th>
+                        <th>Our Industry Training</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Focus</strong></td>
+                        <td>Theoretical concepts and principles</td>
+                        <td>Practical application and real-world scenarios</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tools & Technologies</strong></td>
+                        <td>Basic or outdated tools</td>
+                        <td>Latest industry-standard tools and platforms</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Projects</strong></td>
+                        <td>Academic assignments with limited scope</td>
+                        <td>Live projects with real business requirements</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Industry Practices</strong></td>
+                        <td>Limited exposure</td>
+                        <td>Full immersion in industry best practices</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mentorship</strong></td>
+                        <td>Academic faculty guidance</td>
+                        <td>Industry experts and practitioners</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Job Readiness</strong></td>
+                        <td>Requires additional training</td>
+                        <td>Immediate job readiness</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Networking</strong></td>
+                        <td>Limited to academic circles</td>
+                        <td>Industry connections and professional network</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Training Delivery Methods</h2>
+            <div class="grid">
+                <div class="card">
+                    <h4>Online Training</h4>
+                    <ul>
+                        <li>Live Interactive Sessions</li>
+                        <li>Recorded Video Lectures</li>
+                        <li>Virtual Labs & Hands-on Practice</li>
+                        <li>Real-time Q&A with Instructors</li>
+                        <li>Online Project Collaboration</li>
+                        <li>Flexible Schedule Options</li>
+                        <li>Global Access from Anywhere</li>
+                        <li>Digital Learning Resources</li>
+                        <li>Online Assessments & Certifications</li>
+                        <li>24/7 Access to Learning Materials</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Offline Training</h4>
+                    <ul>
+                        <li>In-Person Classroom Sessions</li>
+                        <li>Hands-on Lab Sessions</li>
+                        <li>Face-to-Face Mentorship</li>
+                        <li>Networking Opportunities</li>
+                        <li>Physical Lab Access</li>
+                        <li>Structured Learning Environment</li>
+                        <li>Group Projects & Collaboration</li>
+                        <li>Immediate Instructor Support</li>
+                        <li>Workshop & Seminar Access</li>
+                        <li>On-Site Training for Organizations</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Hybrid Training</h4>
+                    <ul>
+                        <li>Combination of Online & Offline</li>
+                        <li>Flexible Learning Paths</li>
+                        <li>Best of Both Worlds</li>
+                        <li>Customized Schedule Options</li>
+                        <li>Adaptive Learning Experience</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>PhD Research Support & Publication Assistance</h2>
+            <div class="grid">
+                <div class="card">
+                    <h4>Research Article Writing</h4>
+                    <ul>
+                        <li>Research Paper Structure & Formatting</li>
+                        <li>Literature Review Writing</li>
+                        <li>Methodology Section Development</li>
+                        <li>Results & Discussion Writing</li>
+                        <li>Abstract & Conclusion Crafting</li>
+                        <li>Citation & Reference Management</li>
+                        <li>Academic Writing Style & Language</li>
+                        <li>Research Proposal Writing</li>
+                        <li>Thesis & Dissertation Writing</li>
+                        <li>Technical Writing Skills</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Research Assistance</h4>
+                    <ul>
+                        <li>Research Methodology Guidance</li>
+                        <li>Data Collection & Analysis Support</li>
+                        <li>Statistical Analysis Assistance</li>
+                        <li>Experimental Design Consultation</li>
+                        <li>Literature Search & Review</li>
+                        <li>Research Problem Identification</li>
+                        <li>Hypothesis Formulation</li>
+                        <li>Research Gap Analysis</li>
+                        <li>Research Ethics & Compliance</li>
+                        <li>One-on-One Research Mentoring</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Publication Support</h4>
+                    <ul>
+                        <li>Journal Selection Guidance</li>
+                        <li>Open Source Journal Publication</li>
+                        <li>Paid/Subscription Journal Publication</li>
+                        <li>Impact Factor Analysis</li>
+                        <li>Manuscript Preparation & Formatting</li>
+                        <li>Peer Review Response Assistance</li>
+                        <li>Revision & Resubmission Support</li>
+                        <li>Plagiarism Checking & Reduction</li>
+                        <li>Copyright & Ethics Compliance</li>
+                        <li>Publication Timeline Management</li>
+                        <li>Indexing & Citation Optimization</li>
+                        <li>Author Guidelines Compliance</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card" style="margin-top: 20px;">
+                <h4>Publication Services Include:</h4>
+                <ul>
+                    <li><strong>Open Access Journals:</strong> Support for publishing in open source journals (PLOS ONE, BMC, Frontiers, etc.)</li>
+                    <li><strong>Paid Journals:</strong> Assistance with subscription-based journals (IEEE, ACM, Elsevier, Springer, etc.)</li>
+                    <li><strong>Journal Matching:</strong> Help finding the right journal for your research domain</li>
+                    <li><strong>Submission Process:</strong> Complete guidance through the submission and review process</li>
+                    <li><strong>Post-Publication:</strong> Support for promoting and sharing your published work</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Academic Tutoring (KG to PhD)</h2>
+            <p style="font-size: 1.1em; margin-bottom: 20px;">
+                Comprehensive subject-wise tutoring services for students at all academic levels, from Kindergarten to PhD:
+            </p>
+            <div class="grid">
+                <div class="card">
+                    <h4>Early Education (KG to Grade 5)</h4>
+                    <ul>
+                        <li>Mathematics Fundamentals</li>
+                        <li>Reading & Writing Skills</li>
+                        <li>Science Basics</li>
+                        <li>Language Development</li>
+                        <li>Creative Learning</li>
+                        <li>Problem-Solving Skills</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Middle School (Grade 6-8)</h4>
+                    <ul>
+                        <li>Mathematics (Algebra, Geometry)</li>
+                        <li>Science (Physics, Chemistry, Biology)</li>
+                        <li>English Language & Literature</li>
+                        <li>Social Studies</li>
+                        <li>Computer Basics</li>
+                        <li>Study Skills Development</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>High School (Grade 9-12)</h4>
+                    <ul>
+                        <li>Advanced Mathematics (Calculus, Statistics)</li>
+                        <li>Physics, Chemistry, Biology</li>
+                        <li>Computer Science</li>
+                        <li>English & Communication</li>
+                        <li>Test Preparation (SAT, ACT, AP)</li>
+                        <li>College Entrance Exam Prep</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Degree Programs (B.A., B.Sc., B.Com, etc.)</h4>
+                    <ul>
+                        <li>Arts & Humanities Subjects</li>
+                        <li>Science Subjects (Physics, Chemistry, Biology, Mathematics)</li>
+                        <li>Commerce & Economics</li>
+                        <li>Computer Science & IT</li>
+                        <li>Statistics & Mathematics</li>
+                        <li>Project & Assignment Help</li>
+                        <li>Exam Preparation & Revision</li>
+                        <li>Subject-Specific Doubt Clearing</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>B.Tech (Bachelor of Technology) Tuitions</h4>
+                    <ul>
+                        <li>Computer Science & Engineering (CSE)</li>
+                        <li>Electronics & Communication Engineering (ECE)</li>
+                        <li>Electrical Engineering (EE)</li>
+                        <li>Mechanical Engineering (ME)</li>
+                        <li>Civil Engineering (CE)</li>
+                        <li>Information Technology (IT)</li>
+                        <li>All Core Engineering Subjects</li>
+                        <li>Mathematics & Applied Mathematics</li>
+                        <li>Physics & Chemistry for Engineers</li>
+                        <li>Programming & Software Development</li>
+                        <li>Project & Lab Work Assistance</li>
+                        <li>Semester Exam Preparation</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>M.Tech (Master of Technology) Tuitions</h4>
+                    <ul>
+                        <li>Advanced Computer Science & Engineering</li>
+                        <li>Data Science & Machine Learning</li>
+                        <li>Artificial Intelligence & Robotics</li>
+                        <li>Cloud Computing & Distributed Systems</li>
+                        <li>Cybersecurity & Network Security</li>
+                        <li>Embedded Systems & IoT</li>
+                        <li>VLSI Design & Digital Systems</li>
+                        <li>Advanced Algorithms & Data Structures</li>
+                        <li>Research Methodology for Engineers</li>
+                        <li>Thesis & Dissertation Support</li>
+                        <li>Project Work Guidance</li>
+                        <li>Specialized Domain Subjects</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Pre-PhD Subjects Training</h4>
+                    <ul>
+                        <li>Research Methodology & Design</li>
+                        <li>Advanced Statistics & Data Analysis</li>
+                        <li>Literature Review Techniques</li>
+                        <li>Research Ethics & Compliance</li>
+                        <li>Academic Writing & Communication</li>
+                        <li>Quantitative & Qualitative Research Methods</li>
+                        <li>Experimental Design & Analysis</li>
+                        <li>Research Proposal Development</li>
+                        <li>Critical Thinking & Analysis</li>
+                        <li>Subject-Specific Pre-PhD Preparation</li>
+                        <li>Entrance Exam Preparation (NET, GATE, etc.)</li>
+                        <li>PhD Admission Process Guidance</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>PhD Level</h4>
+                    <ul>
+                        <li>Advanced Research Topics</li>
+                        <li>Literature Review Assistance</li>
+                        <li>Research Methodology Consultation</li>
+                        <li>Data Analysis & Interpretation</li>
+                        <li>Thesis & Dissertation Writing</li>
+                        <li>Publication & Paper Writing</li>
+                        <li>Viva & Defense Preparation</li>
+                        <li>Subject-Specific Expertise</li>
+                        <li>Advanced Statistical Methods</li>
+                        <li>Research Tool Training</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card" style="margin-top: 20px;">
+                <h4>Tutoring Features:</h4>
+                <ul>
+                    <li><strong>Subject-Wise Specialization:</strong> Expert tutors for each subject and level</li>
+                    <li><strong>Flexible Scheduling:</strong> One-on-one or group sessions, online or offline</li>
+                    <li><strong>Customized Curriculum:</strong> Tailored to individual learning needs</li>
+                    <li><strong>Progress Tracking:</strong> Regular assessments and performance monitoring</li>
+                    <li><strong>Exam Preparation:</strong> Focused preparation for tests, exams, and competitive exams</li>
+                    <li><strong>Assignment Help:</strong> Support with homework, projects, and assignments</li>
+                    <li><strong>24/7 Doubt Clearing:</strong> Round-the-clock support for academic queries</li>
+                    <li><strong>Comprehensive Course Materials:</strong> Complete study materials, notes, practice problems, and reference materials provided</li>
+                </ul>
+            </div>
+            <div class="card" style="margin-top: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                <h4 style="color: white;">📚 Course Materials Included:</h4>
+                <ul style="color: white;">
+                    <li><strong>Study Notes & Lecture Materials:</strong> Comprehensive notes for all subjects</li>
+                    <li><strong>Textbooks & Reference Books:</strong> Digital and physical copies as needed</li>
+                    <li><strong>Practice Problems & Solutions:</strong> Extensive problem sets with detailed solutions</li>
+                    <li><strong>Previous Year Question Papers:</strong> Solved papers for exam preparation</li>
+                    <li><strong>Video Lectures & Tutorials:</strong> Recorded sessions for revision</li>
+                    <li><strong>Lab Manuals & Practical Guides:</strong> For engineering and science subjects</li>
+                    <li><strong>Research Papers & Articles:</strong> For PhD and research-oriented courses</li>
+                    <li><strong>Software & Tools Access:</strong> Licensed software and tools for practical work</li>
+                    <li><strong>Online Resources & Databases:</strong> Access to digital libraries and resources</li>
+                    <li><strong>Regular Updates:</strong> Materials updated as per latest curriculum and syllabus</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Why Choose Our Training Programs?</h2>
+            <div class="grid">
+                <div class="card">
+                    <h4>Industry-Aligned Curriculum</h4>
+                    <p>Content designed by industry experts based on current market demands and future trends.</p>
+                </div>
+                <div class="card">
+                    <h4>Hands-On Experience</h4>
+                    <p>Learn by doing with real projects, not just theory. Build a portfolio that showcases your skills.</p>
+                </div>
+                <div class="card">
+                    <h4>Expert Instructors</h4>
+                    <p>Learn from professionals who work in top tech companies and understand industry challenges.</p>
+                </div>
+                <div class="card">
+                    <h4>Flexible Learning</h4>
+                    <p>Programs designed to fit your schedule - part-time, full-time, online, or hybrid options.</p>
+                </div>
+                <div class="card">
+                    <h4>Comprehensive Course Materials</h4>
+                    <p>Complete study materials, notes, practice problems, textbooks, and digital resources provided for all courses.</p>
+                </div>
+                <div class="card">
+                    <h4>Career Support</h4>
+                    <p>Resume building, interview preparation, and job placement assistance to launch your career.</p>
+                </div>
+                <div class="card">
+                    <h4>Certification</h4>
+                    <p>Industry-recognized certificates that validate your skills to employers.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Complete Technology Stack</h2>
+            <div class="tech-stack">
+                <span class="tech-badge">Python</span>
+                <span class="tech-badge">Data Science</span>
+                <span class="tech-badge">Machine Learning</span>
+                <span class="tech-badge">Deep Learning</span>
+                <span class="tech-badge">AI</span>
+                <span class="tech-badge">Generative AI</span>
+                <span class="tech-badge">Agentic AI</span>
+                <span class="tech-badge">Langchain</span>
+                <span class="tech-badge">RAG</span>
+                <span class="tech-badge">AWS</span>
+                <span class="tech-badge">Azure</span>
+                <span class="tech-badge">GCP</span>
+                <span class="tech-badge">Docker</span>
+                <span class="tech-badge">Kubernetes</span>
+                <span class="tech-badge">CI/CD</span>
+                <span class="tech-badge">DevOps</span>
+                <span class="tech-badge">SAP MM</span>
+                <span class="tech-badge">SAP CPI</span>
+                <span class="tech-badge">SAP SAC</span>
+                <span class="tech-badge">SAP FICO</span>
+                <span class="tech-badge">SAP HANA</span>
+                <span class="tech-badge">ServiceNow</span>
+                <span class="tech-badge">Snowflake</span>
+                <span class="tech-badge">Databricks</span>
+                <span class="tech-badge">Big Data</span>
+                <span class="tech-badge">IAM Tools</span>
+                <span class="tech-badge">Cloud Computing</span>
+                <span class="tech-badge">Quantum Computing</span>
+                <span class="tech-badge">Quantum ML</span>
+                <span class="tech-badge">Cyber Security</span>
+                <span class="tech-badge">TensorFlow</span>
+                <span class="tech-badge">PyTorch</span>
+                <span class="tech-badge">Pandas</span>
+                <span class="tech-badge">NumPy</span>
+                <span class="tech-badge">Scikit-learn</span>
+                <span class="tech-badge">OpenAI API</span>
+                <span class="tech-badge">Vector Databases</span>
+            </div>
+        </div>
+
+        <div class="install-app-section" id="install-app-section">
+            <h3>📱 Install as Mobile/Web App</h3>
+            <p>Install this brochure as an app on your phone or computer for quick access, offline viewing, and a native app experience!</p>
+            <button type="button" class="install-button" id="install-button" onclick="installApp()">
+                📲 Install App
+            </button>
+            <div class="app-instructions">
+                <h4>How to Install:</h4>
+                <ul>
+                    <li><strong>Mobile (Android/iPhone):</strong> Tap "Install App" or use browser menu → "Add to Home Screen"</li>
+                    <li><strong>Desktop (Chrome/Edge):</strong> Click the install icon in the address bar or use "Install App" button</li>
+                    <li><strong>Benefits:</strong> Works offline, faster loading, app-like experience, easy access from home screen</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="download-section">
+            <h3>📥 Download Brochure</h3>
+            <p>Download this brochure in your preferred format for offline viewing, printing, or sharing.</p>
+            <div class="download-buttons">
+                <button type="button" class="download-button pdf" onclick="downloadPDF()" id="download-pdf-btn">
+                    📄 Download PDF
+                </button>
+                <button type="button" class="download-button word" onclick="downloadWord()" id="download-word-btn">
+                    📝 Download Word
+                </button>
+            </div>
+            <p style="margin-top: 20px; font-size: 0.9em; opacity: 0.8;">
+                Files will be saved directly to your Downloads folder.
+            </p>
+        </div>
+
+        <div class="share-section">
+            <h3>📤 Share This Brochure</h3>
+            <p>Share this training brochure with students, colleagues, or anyone interested in our programs. They can view all details and fill out the enrollment form directly.</p>
+            <div class="share-link-container">
+                <input type="text" id="share-link-input" class="share-link-input" value="" readonly>
+                <button type="button" class="copy-button" onclick="copyShareLink()" id="copy-link-btn">
+                    📋 Copy Link
+                </button>
+            </div>
+            <div class="share-buttons">
+                <a href="#" class="share-button email" onclick="shareViaEmail(event)">
+                    📧 Email
+                </a>
+                <a href="#" class="share-button whatsapp" onclick="shareViaWhatsApp(event)">
+                    💬 WhatsApp
+                </a>
+                <a href="#" class="share-button linkedin" onclick="shareViaLinkedIn(event)">
+                    💼 LinkedIn
+                </a>
+                <a href="#" class="share-button facebook" onclick="shareViaFacebook(event)">
+                    📘 Facebook
+                </a>
+                <a href="#" class="share-button twitter" onclick="shareViaTwitter(event)">
+                    🐦 Twitter
+                </a>
+            </div>
+            <p style="margin-top: 20px; font-size: 0.9em; opacity: 0.8;">
+                💡 Tip: If you're viewing this file locally, upload it to a web server or use a file sharing service to get a shareable link.
+            </p>
+        </div>
+
+        <div class="cta" id="enrollment">
+            <h2>Ready to Bridge the Gap?</h2>
+            <p style="font-size: 1.2em; margin-bottom: 30px;">
+                Transform your academic knowledge into industry-ready skills. Join thousands of successful professionals 
+                who have accelerated their careers with our training programs.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Enrollment Form</h2>
+            <div class="enrollment-form">
+                <form id="enrollmentForm" onsubmit="handleSubmit(event)">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name *</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name *</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="degree">Current Academic Level *</label>
+                            <select id="degree" name="degree" required>
+                                <option value="">Select your level</option>
+                                <option value="kg-grade5">Kindergarten to Grade 5</option>
+                                <option value="grade6-8">Grade 6-8 (Middle School)</option>
+                                <option value="grade9-12">Grade 9-12 (High School)</option>
+                                <option value="degree">Degree (B.A., B.Sc., B.Com, etc.)</option>
+                                <option value="btech">B.Tech (Bachelor of Technology)</option>
+                                <option value="mtech">M.Tech (Master of Technology)</option>
+                                <option value="graduate">Graduate (Master's - Other)</option>
+                                <option value="pre-phd">Pre-PhD</option>
+                                <option value="phd">PhD Scholar</option>
+                                <option value="professional">Working Professional</option>
+                                <option value="career-switcher">Career Switcher</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="field">Field of Study</label>
+                            <input type="text" id="field" name="field" placeholder="e.g., Computer Science, Engineering">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Select Courses of Interest *</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="course-python" name="courses" value="Python">
+                                <label for="course-python">Python Programming</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="course-datascience" name="courses" value="Data Science">
+                                <label for="course-datascience">Data Science</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="course-ai" name="courses" value="AI">
+                                <label for="course-ai">Artificial Intelligence</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="course-genai" name="courses" value="GenAI">
+                                <label for="course-genai">Generative AI</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="course-agenticai" name="courses" value="Agentic AI">
+                                <label for="course-agenticai">Agentic AI</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="course-langchain" name="courses" value="Langchain">
+                                <label for="course-langchain">Langchain</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="course-rag" name="courses" value="RAG">
+                                <label for="course-rag">RAG</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="course-aws" name="courses" value="AWS">
+                                <label for="course-aws">AWS</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="course-azure" name="courses" value="Azure">
+                                <label for="course-azure">Azure</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="course-gcp" name="courses" value="GCP">
+                                <label for="course-gcp">GCP</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="course-cicd" name="courses" value="CI/CD Tools">
+                                <label for="course-cicd">CI/CD Tools</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="course-devops" name="courses" value="DevOps Tools">
+                                <label for="course-devops">DevOps Tools</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="course-sapmm" name="courses" value="SAP MM">
+                                <label for="course-sapmm">SAP MM</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="course-sapcpi" name="courses" value="SAP CPI">
+                                <label for="course-sapcpi">SAP CPI</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="course-sapsac" name="courses" value="SAP SAC">
+                                <label for="course-sapsac">SAP SAC</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="course-sapfico" name="courses" value="SAP FICO">
+                                <label for="course-sapfico">SAP FICO</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="course-saphana" name="courses" value="SAP HANA">
+                                <label for="course-saphana">SAP HANA</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="course-servicenow" name="courses" value="ServiceNow">
+                                <label for="course-servicenow">ServiceNow</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="course-snowflake" name="courses" value="Snowflake">
+                                <label for="course-snowflake">Snowflake</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="course-databricks" name="courses" value="Databricks">
+                                <label for="course-databricks">Databricks</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="course-bigdata" name="courses" value="Big Data">
+                                <label for="course-bigdata">Big Data</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="course-iam" name="courses" value="IAM Tools">
+                                <label for="course-iam">IAM Tools</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="course-cloud" name="courses" value="Cloud Computing">
+                                <label for="course-cloud">Cloud Computing</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="course-quantum" name="courses" value="Quantum Computing">
+                                <label for="course-quantum">Quantum Computing</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="course-quantumml" name="courses" value="Quantum Machine Learning">
+                                <label for="course-quantumml">Quantum Machine Learning</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="course-cybersecurity" name="courses" value="Cyber Security Tools">
+                                <label for="course-cybersecurity">Cyber Security Tools</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="course-phd-research" name="courses" value="PhD Research Support">
+                                <label for="course-phd-research">PhD Research Support</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="course-publication" name="courses" value="Publication Support">
+                                <label for="course-publication">Publication Support</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="course-tutoring" name="courses" value="Academic Tutoring">
+                                <label for="course-tutoring">Academic Tutoring (KG to PhD)</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="course-degree" name="courses" value="Degree Tuitions">
+                                <label for="course-degree">Degree Tuitions (B.A., B.Sc., B.Com)</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="course-btech" name="courses" value="B.Tech Tuitions">
+                                <label for="course-btech">B.Tech Tuitions</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="course-mtech" name="courses" value="M.Tech Tuitions">
+                                <label for="course-mtech">M.Tech Tuitions</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="course-prephd" name="courses" value="Pre-PhD Subjects Training">
+                                <label for="course-prephd">Pre-PhD Subjects Training</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Preferred Training Method *</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="method-online" name="trainingMethod" value="Online">
+                                <label for="method-online">Online Training</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="method-offline" name="trainingMethod" value="Offline">
+                                <label for="method-offline">Offline Training</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="method-hybrid" name="trainingMethod" value="Hybrid">
+                                <label for="method-hybrid">Hybrid Training</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="projectType">Preferred Project Type</label>
+                        <select id="projectType" name="projectType">
+                            <option value="">Select project type</option>
+                            <option value="mini">Mini Projects (1-2 weeks)</option>
+                            <option value="major">Major Projects (4-8 weeks)</option>
+                            <option value="live">Live Projects (8-12 weeks)</option>
+                            <option value="all">All Types</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Additional Information or Questions</label>
+                        <textarea id="message" name="message" placeholder="Tell us about your goals, experience, or any questions you have..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-button">Submit Enrollment</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="section" id="contact">
+            <h2>Get in Touch</h2>
+            <div class="grid">
+                <div class="editable-contact">
+                    <h4>Contact Information</h4>
+                    <div class="contact-field">
+                        <label for="contact-email">Email Address</label>
+                        <input type="email" id="contact-email" value="training@example.com" readonly>
+                    </div>
+                    <div class="contact-field">
+                        <label for="contact-phone">Phone Number</label>
+                        <input type="tel" id="contact-phone" value="+1 (555) 123-4567" readonly>
+                    </div>
+                    <div class="contact-field">
+                        <label for="contact-website">Website</label>
+                        <input type="url" id="contact-website" value="www.trainingprogram.com" readonly>
+                    </div>
+                    <div class="contact-field">
+                        <label for="contact-address">Address (Optional)</label>
+                        <input type="text" id="contact-address" value="" placeholder="Enter your address" readonly>
+                    </div>
+                    <div class="contact-field">
+                        <label for="contact-linkedin">LinkedIn (Optional)</label>
+                        <input type="url" id="contact-linkedin" value="" placeholder="LinkedIn profile URL" readonly>
+                    </div>
+                    <div class="button-group">
+                        <button type="button" class="edit-button" id="edit-contact-btn" onclick="toggleContactEdit()">Edit Contact Info</button>
+                        <button type="button" class="edit-button save-button" id="save-contact-btn" onclick="saveContactInfo()" style="display: none;">Save Changes</button>
+                        <button type="button" class="edit-button cancel-button" id="cancel-contact-btn" onclick="cancelContactEdit()" style="display: none;">Cancel</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <h4>Program Inquiries</h4>
+                    <p>Interested in our programs? Contact us to learn more about:</p>
+                    <ul>
+                        <li>Course schedules and availability</li>
+                        <li>Customized training for institutions</li>
+                        <li>Corporate training programs</li>
+                        <li>Degree, B.Tech, M.Tech tuitions</li>
+                        <li>Pre-PhD subjects training</li>
+                        <li>PhD research and publication support</li>
+                        <li>Academic tutoring services (KG to PhD)</li>
+                        <li>Course materials and study resources</li>
+                        <li>Scholarship opportunities</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; padding: 20px; color: #666; margin-top: 40px;">
+            <p>&copy; 2024 Industry & Academic Training Programs. All rights reserved.</p>
+            <p style="margin-top: 10px;">Bridging the gap between academia and industry, one student at a time.</p>
+        </div>
+    </div>
+
+    <script>
+        // Store original contact values
+        let originalContactValues = {};
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(event.target);
+            const data = {};
+            
+            // Collect all form fields
+            for (let [key, value] of formData.entries()) {
+                if (key === 'courses' || key === 'trainingMethod') {
+                    if (!data[key]) data[key] = [];
+                    data[key].push(value);
+                } else {
+                    data[key] = value;
+                }
+            }
+            
+            // Validate at least one course is selected
+            if (!data.courses || data.courses.length === 0) {
+                alert('Please select at least one course.');
+                return;
+            }
+            
+            // Validate at least one training method is selected
+            const trainingMethods = formData.getAll('trainingMethod');
+            if (trainingMethods.length === 0) {
+                alert('Please select at least one training method (Online, Offline, or Hybrid).');
+                return;
+            }
+            
+            // Display confirmation (in a real application, this would be sent to a server)
+            const coursesList = data.courses.join(', ');
+                // Collect training methods
+                const trainingMethods = formData.getAll('trainingMethod');
+                const methodsList = trainingMethods.length > 0 ? trainingMethods.join(', ') : 'Not specified';
+                
+                const confirmation = `
+                Thank you for your enrollment request, ${data.firstName} ${data.lastName}!
+                
+                We have received your information:
+                - Email: ${data.email}
+                - Phone: ${data.phone}
+                - Academic Level: ${data.degree}
+                - Selected Courses: ${coursesList}
+                - Project Type: ${data.projectType || 'Not specified'}
+                - Training Method: ${methodsList}
+                
+                Our team will contact you shortly to discuss your training needs.
+            `;
+            
+            alert(confirmation);
+            
+            // In a real application, you would send this data to your server:
+            // fetch('/api/enroll', {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify(data)
+            // });
+            
+            // Optionally reset the form
+            // event.target.reset();
+        }
+
+        function toggleContactEdit() {
+            const contactFields = ['contact-email', 'contact-phone', 'contact-website', 'contact-address', 'contact-linkedin'];
+            
+            // Store original values if not already stored
+            if (Object.keys(originalContactValues).length === 0) {
+                contactFields.forEach(fieldId => {
+                    const field = document.getElementById(fieldId);
+                    originalContactValues[fieldId] = field.value;
+                });
+            }
+            
+            // Make fields editable
+            contactFields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                field.removeAttribute('readonly');
+                field.style.backgroundColor = 'white';
+            });
+            
+            // Show/hide buttons
+            document.getElementById('edit-contact-btn').style.display = 'none';
+            document.getElementById('save-contact-btn').style.display = 'inline-block';
+            document.getElementById('cancel-contact-btn').style.display = 'inline-block';
+        }
+
+        function saveContactInfo() {
+            const contactFields = ['contact-email', 'contact-phone', 'contact-website', 'contact-address', 'contact-linkedin'];
+            const contactData = {};
+            
+            // Collect updated values
+            contactFields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                const fieldName = fieldId.replace('contact-', '');
+                contactData[fieldName] = field.value;
+            });
+            
+            // Validate email format
+            const email = document.getElementById('contact-email').value;
+            if (email && !isValidEmail(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+            
+            // Validate URL formats
+            const website = document.getElementById('contact-website').value;
+            const linkedin = document.getElementById('contact-linkedin').value;
+            
+            if (website && !isValidURL(website)) {
+                alert('Please enter a valid website URL (include http:// or https://).');
+                return;
+            }
+            
+            if (linkedin && !isValidURL(linkedin)) {
+                alert('Please enter a valid LinkedIn URL.');
+                return;
+            }
+            
+            // Save to localStorage (in a real application, this would be sent to a server)
+            localStorage.setItem('contactInfo', JSON.stringify(contactData));
+            
+            // Make fields read-only again
+            contactFields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                field.setAttribute('readonly', 'readonly');
+                field.style.backgroundColor = '#f8f9fa';
+            });
+            
+            // Show/hide buttons
+            document.getElementById('edit-contact-btn').style.display = 'inline-block';
+            document.getElementById('save-contact-btn').style.display = 'none';
+            document.getElementById('cancel-contact-btn').style.display = 'none';
+            
+            // Clear stored original values
+            originalContactValues = {};
+            
+            alert('Contact information saved successfully!');
+        }
+
+        function cancelContactEdit() {
+            const contactFields = ['contact-email', 'contact-phone', 'contact-website', 'contact-address', 'contact-linkedin'];
+            
+            // Restore original values
+            contactFields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                field.value = originalContactValues[fieldId] || '';
+                field.setAttribute('readonly', 'readonly');
+                field.style.backgroundColor = '#f8f9fa';
+            });
+            
+            // Show/hide buttons
+            document.getElementById('edit-contact-btn').style.display = 'inline-block';
+            document.getElementById('save-contact-btn').style.display = 'none';
+            document.getElementById('cancel-contact-btn').style.display = 'none';
+            
+            // Clear stored original values
+            originalContactValues = {};
+        }
+
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        function isValidURL(url) {
+            if (!url) return true; // Empty is valid (optional field)
+            try {
+                // Add http:// if no protocol is specified
+                const urlToTest = url.startsWith('http://') || url.startsWith('https://') ? url : 'https://' + url;
+                new URL(urlToTest);
+                return true;
+            } catch {
+                return false;
+            }
+        }
+
+        // PWA Install functionality
+        let deferredPrompt;
+        const installButton = document.getElementById('install-button');
+        const installSection = document.getElementById('install-app-section');
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // Prevent the mini-infobar from appearing on mobile
+            e.preventDefault();
+            // Stash the event so it can be triggered later
+            deferredPrompt = e;
+            // Show the install button
+            if (installButton) {
+                installButton.style.display = 'inline-flex';
+            }
+        });
+
+        function installApp() {
+            if (!deferredPrompt) {
+                // Show instructions for manual installation
+                showNotification('📱 To install: Use browser menu → "Add to Home Screen" or "Install App"');
+                return;
+            }
+
+            // Show the install prompt
+            deferredPrompt.prompt();
+            
+            // Wait for the user to respond to the prompt
+            deferredPrompt.userChoice.then((choiceResult) => {
+                if (choiceResult.outcome === 'accepted') {
+                    showNotification('✅ App installed successfully!');
+                    installButton.style.display = 'none';
+                } else {
+                    showNotification('App installation cancelled.');
+                }
+                // Clear the deferredPrompt
+                deferredPrompt = null;
+            });
+        }
+
+        // Hide install button if app is already installed
+        window.addEventListener('appinstalled', () => {
+            showNotification('✅ App installed successfully!');
+            if (installButton) {
+                installButton.style.display = 'none';
+            }
+            deferredPrompt = null;
+        });
+
+        // Check if app is already installed (standalone mode)
+        if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone) {
+            if (installButton) {
+                installButton.style.display = 'none';
+            }
+        }
+
+        // Register Service Worker for PWA
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('service-worker.js')
+                    .then(function(registration) {
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(function(err) {
+                        console.log('ServiceWorker registration failed');
+                    });
+            });
+        }
+
+        // Load saved contact information on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            const savedContactInfo = localStorage.getItem('contactInfo');
+            if (savedContactInfo) {
+                try {
+                    const contactData = JSON.parse(savedContactInfo);
+                    Object.keys(contactData).forEach(key => {
+                        const fieldId = 'contact-' + key;
+                        const field = document.getElementById(fieldId);
+                        if (field && contactData[key]) {
+                            field.value = contactData[key];
+                        }
+                    });
+                } catch (e) {
+                    console.error('Error loading saved contact info:', e);
+                }
+            }
+            
+            // Set the share link on page load
+            updateShareLink();
+            
+            // Check if install button should be shown
+            if (!deferredPrompt && installButton) {
+                // Still show button for manual installation instructions
+                installButton.style.display = 'inline-flex';
+            }
+        });
+
+        // Share link functionality
+        function updateShareLink() {
+            const shareLinkInput = document.getElementById('share-link-input');
+            const currentUrl = window.location.href;
+            
+            // If it's a file:// URL (local file), show instructions
+            if (currentUrl.startsWith('file://')) {
+                shareLinkInput.value = 'Upload this file to a web server to get a shareable link';
+                shareLinkInput.style.color = '#999';
+            } else {
+                shareLinkInput.value = currentUrl;
+                shareLinkInput.style.color = '#333';
+            }
+        }
+
+        function copyShareLink() {
+            const shareLinkInput = document.getElementById('share-link-input');
+            const copyButton = document.getElementById('copy-link-btn');
+            
+            // If it's a local file, show instructions
+            if (shareLinkInput.value.includes('file://') || shareLinkInput.value.includes('Upload this file')) {
+                showNotification('⚠️ Please upload this file to a web server first to get a shareable link.');
+                return;
+            }
+            
+            shareLinkInput.select();
+            shareLinkInput.setSelectionRange(0, 99999); // For mobile devices
+            
+            try {
+                navigator.clipboard.writeText(shareLinkInput.value).then(function() {
+                    copyButton.textContent = '✓ Copied!';
+                    copyButton.classList.add('copied');
+                    showNotification('✅ Link copied to clipboard!');
+                    
+                    setTimeout(function() {
+                        copyButton.textContent = '📋 Copy Link';
+                        copyButton.classList.remove('copied');
+                    }, 2000);
+                }).catch(function() {
+                    // Fallback for older browsers
+                    document.execCommand('copy');
+                    copyButton.textContent = '✓ Copied!';
+                    copyButton.classList.add('copied');
+                    showNotification('✅ Link copied to clipboard!');
+                    
+                    setTimeout(function() {
+                        copyButton.textContent = '📋 Copy Link';
+                        copyButton.classList.remove('copied');
+                    }, 2000);
+                });
+            } catch (err) {
+                showNotification('❌ Failed to copy link. Please select and copy manually.');
+            }
+        }
+
+        function shareViaEmail(event) {
+            event.preventDefault();
+            const url = window.location.href;
+            const subject = encodeURIComponent('Industry & Academic Training Programs - Brochure');
+            const body = encodeURIComponent(`Check out this comprehensive training brochure:\n\n${url}\n\nThis brochure includes details about:\n- Python, Data Science, AI, GenAI, Agentic AI\n- Quantum Computing & Quantum Machine Learning\n- Cyber Security Tools\n- Cloud Platforms (AWS, Azure, GCP)\n- SAP Modules (MM, CPI, SAC, FICO, HANA)\n- ServiceNow, Snowflake, Databricks\n- Big Data, IAM Tools, DevOps\n- Degree, B.Tech, M.Tech Tuitions\n- Pre-PhD Subjects Training\n- PhD Research Support & Publication Assistance\n- Academic Tutoring (KG to PhD)\n- Complete Course Materials Included\n- Online and Offline Training Options\n- And much more!\n\nYou can view all details and fill out the enrollment form directly.`);
+            
+            if (url.startsWith('file://')) {
+                showNotification('⚠️ Please upload this file to a web server first to share.');
+                return;
+            }
+            
+            window.location.href = `mailto:?subject=${subject}&body=${body}`;
+        }
+
+        function shareViaWhatsApp(event) {
+            event.preventDefault();
+            const url = window.location.href;
+            const text = encodeURIComponent(`Check out this comprehensive training brochure: ${url}\n\nIncludes Python, Data Science, AI, Quantum Computing, Quantum ML, Cyber Security, Cloud Platforms, SAP, Degree/B.Tech/M.Tech Tuitions, Pre-PhD Training, PhD Research Support, Publication Assistance, Academic Tutoring (KG to PhD), and more! Complete course materials included! Online and Offline training available!`);
+            
+            if (url.startsWith('file://')) {
+                showNotification('⚠️ Please upload this file to a web server first to share.');
+                return;
+            }
+            
+            window.open(`https://wa.me/?text=${text}`, '_blank');
+        }
+
+        function shareViaLinkedIn(event) {
+            event.preventDefault();
+            const url = window.location.href;
+            
+            if (url.startsWith('file://')) {
+                showNotification('⚠️ Please upload this file to a web server first to share.');
+                return;
+            }
+            
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank');
+        }
+
+        function shareViaFacebook(event) {
+            event.preventDefault();
+            const url = window.location.href;
+            
+            if (url.startsWith('file://')) {
+                showNotification('⚠️ Please upload this file to a web server first to share.');
+                return;
+            }
+            
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+        }
+
+        function shareViaTwitter(event) {
+            event.preventDefault();
+            const url = window.location.href;
+            const text = encodeURIComponent('Check out this comprehensive Industry & Academic Training Programs brochure!');
+            
+            if (url.startsWith('file://')) {
+                showNotification('⚠️ Please upload this file to a web server first to share.');
+                return;
+            }
+            
+            window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${text}`, '_blank');
+        }
+
+        function showNotification(message) {
+            // Remove existing notification if any
+            const existingNotification = document.querySelector('.notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+            
+            // Create new notification
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            // Show notification
+            notification.style.display = 'block';
+            
+            // Hide after 3 seconds
+            setTimeout(function() {
+                notification.style.display = 'none';
+                setTimeout(function() {
+                    notification.remove();
+                }, 300);
+            }, 3000);
+        }
+
+        // PDF Download Function
+        function downloadPDF() {
+            const pdfButton = document.getElementById('download-pdf-btn');
+            const originalText = pdfButton.innerHTML;
+            
+            // Show loading state
+            pdfButton.disabled = true;
+            pdfButton.innerHTML = '<span class="loading-spinner"></span> Generating PDF...';
+            
+            // Get the main container
+            const element = document.querySelector('.container');
+            const filename = 'Industry-Academic-Training-Brochure.pdf';
+            
+            // Configure PDF options
+            const opt = {
+                margin: [10, 10, 10, 10],
+                filename: filename,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { 
+                    scale: 2,
+                    useCORS: true,
+                    logging: false,
+                    letterRendering: true
+                },
+                jsPDF: { 
+                    unit: 'mm', 
+                    format: 'a4', 
+                    orientation: 'portrait',
+                    compress: true
+                },
+                pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+            };
+            
+            // Generate PDF
+            html2pdf().set(opt).from(element).save().then(function() {
+                showNotification('✅ PDF downloaded successfully!');
+                pdfButton.disabled = false;
+                pdfButton.innerHTML = originalText;
+            }).catch(function(error) {
+                console.error('PDF generation error:', error);
+                showNotification('❌ Error generating PDF. Please try again.');
+                pdfButton.disabled = false;
+                pdfButton.innerHTML = originalText;
+            });
+        }
+
+        // Word Download Function
+        function downloadWord() {
+            const wordButton = document.getElementById('download-word-btn');
+            const originalText = wordButton.innerHTML;
+            
+            // Show loading state
+            wordButton.disabled = true;
+            wordButton.innerHTML = '<span class="loading-spinner"></span> Generating Word...';
+            
+            try {
+                // Get the container content
+                const container = document.querySelector('.container');
+                
+                // Create a temporary div to hold clean HTML
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = container.innerHTML;
+                
+                // Remove script tags and interactive elements
+                const scripts = tempDiv.querySelectorAll('script');
+                scripts.forEach(script => script.remove());
+                
+                const buttons = tempDiv.querySelectorAll('button, .edit-button, .copy-button, .share-button, .download-button');
+                buttons.forEach(btn => {
+                    const p = document.createElement('p');
+                    p.textContent = btn.textContent.trim();
+                    btn.parentNode.replaceChild(p, btn);
+                });
+                
+                // Remove form inputs, replace with text
+                const inputs = tempDiv.querySelectorAll('input, select, textarea');
+                inputs.forEach(input => {
+                    const p = document.createElement('p');
+                    if (input.type === 'checkbox') {
+                        p.textContent = input.checked ? '✓ ' + (input.nextElementSibling?.textContent || '') : '';
+                    } else {
+                        p.textContent = input.value || input.placeholder || '';
+                    }
+                    if (input.parentElement) {
+                        input.parentElement.replaceChild(p, input);
+                    }
+                });
+                
+                // Get clean HTML
+                let htmlContent = tempDiv.innerHTML;
+                
+                // Create Word document HTML structure
+                const wordHTML = `
+                    <!DOCTYPE html>
+                    <html xmlns:o='urn:schemas-microsoft-com:office:office' 
+                          xmlns:w='urn:schemas-microsoft-com:office:word' 
+                          xmlns='http://www.w3.org/TR/REC-html40'>
+                    <head>
+                        <meta charset='utf-8'>
+                        <title>Industry & Academic Training Programs</title>
+                        <!--[if gte mso 9]>
+                        <xml>
+                            <w:WordDocument>
+                                <w:View>Print</w:View>
+                                <w:Zoom>90</w:Zoom>
+                                <w:DoNotOptimizeForBrowser/>
+                            </w:WordDocument>
+                        </xml>
+                        <![endif]-->
+                        <style>
+                            @page {
+                                size: 8.5in 11in;
+                                margin: 1in;
+                            }
+                            body {
+                                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                                line-height: 1.6;
+                                color: #333;
+                            }
+                            h1, h2, h3, h4 {
+                                color: #667eea;
+                                margin-top: 20px;
+                                margin-bottom: 10px;
+                            }
+                            .card {
+                                border: 1px solid #ddd;
+                                padding: 15px;
+                                margin: 10px 0;
+                                border-radius: 5px;
+                            }
+                            table {
+                                border-collapse: collapse;
+                                width: 100%;
+                                margin: 15px 0;
+                            }
+                            table th, table td {
+                                border: 1px solid #ddd;
+                                padding: 8px;
+                                text-align: left;
+                            }
+                            table th {
+                                background-color: #667eea;
+                                color: white;
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        ${htmlContent}
+                    </body>
+                    </html>
+                `;
+                
+                // Create blob and download
+                const blob = new Blob(['\ufeff', wordHTML], {
+                    type: 'application/msword'
+                });
+                
+                const url = URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = 'Industry-Academic-Training-Brochure.doc';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                URL.revokeObjectURL(url);
+                
+                showNotification('✅ Word document downloaded successfully!');
+                wordButton.disabled = false;
+                wordButton.innerHTML = originalText;
+                
+            } catch (error) {
+                console.error('Word generation error:', error);
+                showNotification('❌ Error generating Word document. Please try again.');
+                wordButton.disabled = false;
+                wordButton.innerHTML = originalText;
+            }
+        }
+    </script>
+</body>
+</html>
+

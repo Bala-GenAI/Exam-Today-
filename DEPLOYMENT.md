@@ -176,11 +176,82 @@ Once deployed, your brochure will have:
 - **Clear cache:** Go to Project Settings → General → "Clear Build Cache" → Redeploy
 - **Check file paths:** All paths should be relative (start with `./`)
 
+## Form Submission & Data Management
+
+### How Form Submissions Work
+
+**Multiple Submission Methods (Automatic):**
+1. **Email (mailto)** - Always works, opens email client
+2. **Formspree** - Free service, requires setup (get ID from formspree.io)
+3. **Web3Forms** - Free service, requires setup (get key from web3forms.com)
+4. **Local Storage** - Always saves submissions locally
+
+**To View Submissions:**
+1. Scroll to "View Enrollment Submissions" section
+2. Enter admin password (default: `admin123`)
+3. View all submitted forms
+4. Delete individual submissions or clear all
+
+**To Change Admin Password:**
+- Open browser console (F12)
+- Run: `localStorage.setItem('adminPassword', 'your-new-password')`
+
+**To Setup Formspree:**
+1. Go to https://formspree.io and sign up (free)
+2. Create a new form
+3. Copy the form ID
+4. Paste it in the "Formspree Form ID" field in Contact section
+5. Click "Save"
+
+**To Setup Web3Forms:**
+1. Go to https://web3forms.com and sign up (free)
+2. Get your access key
+3. Paste it in the "Web3Forms Access Key" field in Contact section
+4. Click "Save"
+
+### Link Issues - Quick Fix
+
+**Problem: Links not opening when clicked**
+
+**Solutions:**
+
+1. **Check Deployment:**
+   - Ensure site is deployed (not just local file)
+   - Verify URL is accessible (not `file://`)
+   - Check Vercel/Netlify deployment status
+
+2. **Fix Internal Links:**
+   - All internal links (like `#enrollment`) should work automatically
+   - If not, the page includes automatic link fixing on load
+
+3. **Check Browser Console:**
+   - Press F12 to open developer tools
+   - Check Console tab for errors
+   - Check Network tab for failed requests
+
+4. **Verify File Paths:**
+   - All paths should be relative (start with `./` or `/`)
+   - Service worker should reference `./brochure.html`
+   - Manifest should have `start_url: "./brochure.html"`
+
+5. **Clear Cache:**
+   - Clear browser cache
+   - Hard refresh: Ctrl+Shift+R (Windows) or Cmd+Shift+R (Mac)
+   - Clear service worker cache in DevTools → Application
+
+6. **Test Locally First:**
+   ```bash
+   # Use a local server
+   python -m http.server 8000
+   # Then visit: http://localhost:8000/brochure.html
+   ```
+
 ## Support
 
 For issues or questions, check:
-- Browser console for errors
+- Browser console for errors (F12)
 - Network tab for failed requests
 - Application tab for service worker status
+- Form submissions are saved in localStorage (view via admin panel)
 
 

@@ -25,6 +25,17 @@
 3. Import your project or drag and drop
 4. Deploy instantly - get a shareable link
 
+**Important for Vercel Deployment:**
+- Make sure `vercel.json` file is included in your project root (automatically routes root to brochure.html)
+- Alternatively, `index.html` file is also included as a backup redirect
+- Your site will be accessible at: `https://your-project.vercel.app/` or `https://your-project.vercel.app/brochure.html`
+- **Files needed for deployment:**
+  - `brochure.html` (main file)
+  - `index.html` (redirects to brochure.html)
+  - `manifest.json` (PWA manifest)
+  - `service-worker.js` (PWA service worker)
+  - `vercel.json` (Vercel configuration)
+
 #### Firebase Hosting (Free)
 1. Go to https://firebase.google.com
 2. Create a project
@@ -122,6 +133,48 @@ Once deployed, your brochure will have:
 ### Share Link Not Working?
 - Make sure the file is hosted (not file://)
 - Check that the URL is accessible publicly
+
+### Vercel 404 Error - Step-by-Step Fix:
+
+**Quick Fix (Recommended):**
+1. ✅ Ensure `vercel.json` file exists in your project root (already created)
+2. ✅ Ensure `index.html` file exists (backup redirect, already created)
+3. ✅ Make sure all these files are in your project:
+   - `brochure.html` (main file)
+   - `index.html` (redirect file)
+   - `manifest.json`
+   - `service-worker.js`
+   - `vercel.json`
+
+**Deployment Steps:**
+1. **Via Drag & Drop:**
+   - Go to https://vercel.com/dashboard
+   - Click "Add New" → "Project"
+   - Drag your entire project folder
+   - Wait for deployment to complete
+
+2. **Via Git (Recommended):**
+   - Push all files to GitHub/GitLab/Bitbucket
+   - Go to Vercel dashboard
+   - Click "Add New" → "Project"
+   - Import your repository
+   - Vercel will auto-detect settings and deploy
+
+3. **After Deployment:**
+   - Check deployment logs for any errors
+   - Visit your site URL (should work now!)
+   - If still 404, try: `https://your-project.vercel.app/brochure.html`
+
+**Troubleshooting:**
+- **Still getting 404?** Check Vercel deployment logs:
+  - Go to your project dashboard on Vercel
+  - Click on the deployment
+  - Check "Build Logs" tab for errors
+- **Service Worker not working?** Verify:
+  - Service worker path: `./service-worker.js` (relative path)
+  - Manifest start_url: `./brochure.html`
+- **Clear cache:** Go to Project Settings → General → "Clear Build Cache" → Redeploy
+- **Check file paths:** All paths should be relative (start with `./`)
 
 ## Support
 
